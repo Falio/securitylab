@@ -36,7 +36,7 @@ public class challenge2 {
 
     }
 
-    public static String toHexStr(byte[] arr)
+    private static String toHexStr(byte[] arr)
     {
         String hexKey = "0123456789abcdef";
 
@@ -48,4 +48,6 @@ public class challenge2 {
         }
         return s;
     }
+
+
 }
