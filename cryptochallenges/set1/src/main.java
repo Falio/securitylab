@@ -1,3 +1,4 @@
+import javax.xml.bind.DatatypeConverter;
 import java.util.Base64;
 
 /**
@@ -5,10 +6,15 @@ import java.util.Base64;
  */
 public class main {
 
-    static String string = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
+    static String hex = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
 
     public static void main(String[] args) {
-        String bytesEncoded = Base64.getEncoder().encodeToString(string.getBytes());
-        System.out.println("ecncoded value is " + new String(bytesEncoded ));
+
+        String bytesEncoded = Base64.getEncoder().encodeToString(toByteArray(hex));
+        System.out.println("encoded value is " + bytesEncoded);
+    }
+
+    public static byte[] toByteArray(String s) {
+        return DatatypeConverter.parseHexBinary(s);
     }
 }
