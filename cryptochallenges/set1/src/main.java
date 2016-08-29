@@ -1,3 +1,4 @@
+import javax.xml.bind.DatatypeConverter;
 import java.util.Base64;
 
 /**
@@ -9,17 +10,11 @@ public class main {
 
     public static void main(String[] args) {
 
-        String bytesEncoded = Base64.getEncoder().encodeToString(hexStringToByteArray(hex));
+        String bytesEncoded = Base64.getEncoder().encodeToString(toByteArray(hex));
         System.out.println("encoded value is " + bytesEncoded);
     }
 
-    public static byte[] hexStringToByteArray(String s) {
-        int len = s.length();
-        byte[] data = new byte[len / 2];
-        for (int i = 0; i < len; i += 2) {
-            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
-                    + Character.digit(s.charAt(i+1), 16));
-        }
-        return data;
+    public static byte[] toByteArray(String s) {
+        return DatatypeConverter.parseHexBinary(s);
     }
 }
