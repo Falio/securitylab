@@ -63,19 +63,18 @@ public class main {
     public static void main(String[] args) {
         byte[] bytes_1 = DatatypeConverter.parseHexBinary(input_1);
 
-        for (char letter : alphabet)
+        for (String letter : alphabet)
         {
+            char character = letter.charAt(0);
             byte[] bytes_combined = new byte[18];
-            byte[] bytes_alphabet = new byte[18];
-
-            bytes_alphabet[0] = DatatypeConverter.parseHexBinary(letter)[0];
 
             int i = 0;
             for (byte b : bytes_1) {
-                bytes_combined[i] = (byte) (b ^ bytes_alphabet[0] );
+                bytes_combined[i] = (byte) (b ^ character );
             }
 
-            System.out.println("string value is " + String.format("%x", new BigInteger(1, bytes_combined)));
+            System.out.println("string value is " + new String( bytes_combined ));
+//            System.out.println("string value is " + String.format("%x", new BigInteger(1, bytes_combined)));
         }
     }
 }
