@@ -23,7 +23,7 @@ public class challenge3 {
         return DatatypeConverter.parseHexBinary(s);
     }
 
-    public static byte[] single(byte[] arr, byte key)
+    private static byte[] single(byte[] arr, byte key)
     {
         byte[] ret = new byte[arr.length];
         for(int i=0; i<arr.length; i++)
@@ -33,7 +33,7 @@ public class challenge3 {
         return ret;
     }
 
-    public static double stringMetric(byte[] arr)
+    private static double stringMetric(byte[] arr)
     {
         int count = 0;
         for (byte b : arr)
@@ -49,7 +49,7 @@ public class challenge3 {
         return (double)count / (arr.length * 4);
     }
 
-    public static String toNormalStr(byte[] arr)
+    private static String toNormalStr(byte[] arr)
     {
         try
         {
